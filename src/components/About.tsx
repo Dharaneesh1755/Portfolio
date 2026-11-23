@@ -1,13 +1,22 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { MapPin, GraduationCap, Globe, Calendar, Sparkles, ArrowRight } from 'lucide-react'
+import { MapPin, GraduationCap, Globe, Calendar, Sparkles, ArrowRight, BookOpen, CheckCircle } from 'lucide-react'
 import { aboutData, designProcess } from '../data/constants'
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '../utils/animations'
 
 export default function About() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
 
-  const highlightIcons = [MapPin, GraduationCap, GraduationCap, Calendar, Globe, ArrowRight]
+  const highlightIcons = [
+    MapPin,
+    GraduationCap,
+    BookOpen,
+    GraduationCap,
+    CheckCircle,
+    Globe,
+    Globe,
+    BookOpen,
+  ]
 
   return (
     <section id="about" className="section" ref={ref}>
@@ -22,10 +31,10 @@ export default function About() {
         >
           <span className="section-label">About Me</span>
           <h2 className="section-title">
-            Designing <span className="gradient-text">Experiences</span> That Matter
+            Designing <span className="gradient-text">Experiences</span> That Solve Problems
           </h2>
           <p className="section-subtitle">
-            Passionate about creating intuitive digital products through research-driven design
+            Creative and user-focused UI/UX designer crafting intuitive, accessible, and visually engaging interfaces
           </p>
         </motion.div>
 
@@ -40,7 +49,7 @@ export default function About() {
           }}
           className="about-grid"
         >
-          {/* Left - Text */}
+          {/* Left - Text & Highlights */}
           <motion.div
             variants={fadeInLeft}
             initial="hidden"
@@ -51,7 +60,7 @@ export default function About() {
               style={{
                 fontSize: '17px',
                 lineHeight: 1.8,
-                color: '#D1D5DB',
+                color: '#E5E7EB',
                 marginBottom: '20px',
               }}
             >
@@ -85,15 +94,22 @@ export default function About() {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '10px',
-                      padding: '10px 14px',
-                      background: 'rgba(17, 24, 39, 0.5)',
-                      border: '1px solid rgba(59, 130, 246, 0.1)',
-                      borderRadius: '10px',
+                      padding: '12px 14px',
+                      background: 'rgba(17, 24, 39, 0.6)',
+                      border: '1px solid rgba(59, 130, 246, 0.15)',
+                      borderRadius: '12px',
                     }}
                   >
-                    <IconComp size={16} style={{ color: '#3B82F6', flexShrink: 0 }} />
+                    <IconComp size={16} style={{ color: '#38BDF8', flexShrink: 0 }} />
                     <div>
-                      <div style={{ fontSize: '11px', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                      <div
+                        style={{
+                          fontSize: '11px',
+                          color: '#9CA3AF',
+                          textTransform: 'uppercase',
+                          letterSpacing: '1px',
+                        }}
+                      >
                         {item.label}
                       </div>
                       <div style={{ fontSize: '13px', fontWeight: 600, color: '#F9FAFB' }}>
@@ -106,7 +122,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right - Stats */}
+          {/* Right - Stats & Philosophy */}
           <motion.div
             variants={fadeInRight}
             initial="hidden"
@@ -136,13 +152,15 @@ export default function About() {
                 >
                   <div
                     style={{
-                      fontSize: '36px',
+                      fontSize: '34px',
                       fontWeight: 800,
                       fontFamily: 'var(--font-heading)',
-                      background: `linear-gradient(135deg, ${i % 2 === 0 ? '#3B82F6, #06B6D4' : '#38BDF8, #818CF8'})`,
+                      background: `linear-gradient(135deg, ${
+                        i % 2 === 0 ? '#3B82F6, #06B6D4' : '#38BDF8, #818CF8'
+                      })`,
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
-                      marginBottom: '4px',
+                      marginBottom: '6px',
                     }}
                   >
                     {stat.value}
@@ -167,19 +185,20 @@ export default function About() {
                 marginTop: '20px',
                 padding: '24px',
                 background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(6, 182, 212, 0.08))',
-                border: '1px solid rgba(59, 130, 246, 0.15)',
+                border: '1px solid rgba(59, 130, 246, 0.18)',
                 borderRadius: '16px',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-                <Sparkles size={18} style={{ color: '#3B82F6' }} />
+                <Sparkles size={18} style={{ color: '#38BDF8' }} />
                 <span style={{ fontSize: '15px', fontWeight: 700, color: '#F9FAFB' }}>
-                  Design Philosophy
+                  User-Centered Design Philosophy
                 </span>
               </div>
               <p style={{ fontSize: '14px', lineHeight: 1.7, color: '#9CA3AF' }}>
-                I believe great design is invisible — it should feel natural and intuitive. 
-                Every interaction should serve a purpose, and every pixel should earn its place.
+                I believe that effective UI/UX design bridges human needs with effortless digital solutions.
+                Through user research, rigorous testing, and structured design systems, I turn complex problems
+                into clean, accessible, and delightful interfaces.
               </p>
             </motion.div>
           </motion.div>
@@ -201,7 +220,7 @@ export default function About() {
               fontFamily: 'var(--font-heading)',
             }}
           >
-            My Design <span className="gradient-text">Process</span>
+            My UI/UX Design <span className="gradient-text">Process</span>
           </motion.h3>
 
           <div
@@ -238,7 +257,7 @@ export default function About() {
                     fontSize: '48px',
                     fontWeight: 900,
                     fontFamily: 'var(--font-heading)',
-                    opacity: 0.04,
+                    opacity: 0.05,
                     color: '#3B82F6',
                   }}
                 >
@@ -250,14 +269,14 @@ export default function About() {
                     width: '48px',
                     height: '48px',
                     borderRadius: '12px',
-                    background: 'rgba(59, 130, 246, 0.1)',
+                    background: 'rgba(59, 130, 246, 0.12)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     margin: '0 auto 16px',
                   }}
                 >
-                  <step.icon size={22} style={{ color: '#3B82F6' }} />
+                  <step.icon size={22} style={{ color: '#38BDF8' }} />
                 </div>
 
                 <h4

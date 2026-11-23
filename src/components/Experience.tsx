@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Briefcase, BookOpen, FlaskConical } from 'lucide-react'
+import { Briefcase, BookOpen, FlaskConical, Award, Workflow, CheckCircle2 } from 'lucide-react'
 import { experiences, timelineItems } from '../data/constants'
 import { fadeInUp, fadeInLeft, staggerContainer, staggerItem } from '../utils/animations'
 
@@ -13,7 +13,7 @@ export default function Experience() {
       className="section"
       ref={ref}
       style={{
-        background: 'linear-gradient(180deg, var(--color-bg) 0%, rgba(17, 24, 39, 0.3) 50%, var(--color-bg) 100%)',
+        background: 'linear-gradient(180deg, var(--color-bg) 0%, rgba(17, 24, 39, 0.4) 50%, var(--color-bg) 100%)',
       }}
     >
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -24,19 +24,19 @@ export default function Experience() {
           animate={inView ? 'visible' : 'hidden'}
           custom={0}
         >
-          <span className="section-label">Experience & Education</span>
+          <span className="section-label">Background & Learning</span>
           <h2 className="section-title">
-            My <span className="gradient-text">Journey</span>
+            Design Journey & <span className="gradient-text">Education</span>
           </h2>
           <p className="section-subtitle">
-            From learning foundations to hands-on design experience
+            Hands-on academic projects, user research experience, and continuous design learning
           </p>
         </motion.div>
 
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
+            gridTemplateColumns: '1.1fr 1fr',
             gap: '48px',
             alignItems: 'start',
           }}
@@ -61,23 +61,23 @@ export default function Experience() {
                   justifyContent: 'center',
                 }}
               >
-                <Briefcase size={20} style={{ color: '#3B82F6' }} />
+                <Briefcase size={20} style={{ color: '#38BDF8' }} />
               </div>
               <h3 style={{ fontSize: '20px', fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
-                Work Experience
+                Practical Project Experience
               </h3>
             </div>
 
             {experiences.map((exp, i) => (
               <motion.div
                 key={i}
-                whileHover={{ y: -4, boxShadow: '0 0 20px rgba(59, 130, 246, 0.15)' }}
+                whileHover={{ y: -4, boxShadow: '0 0 24px rgba(59, 130, 246, 0.15)' }}
                 style={{
                   padding: '28px',
                   background: 'var(--color-bg-card)',
                   border: '1px solid var(--color-border)',
                   borderRadius: '16px',
-                  marginBottom: '16px',
+                  marginBottom: '20px',
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'all 0.3s ease',
@@ -95,12 +95,30 @@ export default function Experience() {
                   }}
                 />
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px', flexWrap: 'wrap', gap: '8px' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    marginBottom: '8px',
+                    flexWrap: 'wrap',
+                    gap: '8px',
+                  }}
+                >
                   <div>
-                    <h4 style={{ fontSize: '18px', fontWeight: 700, color: '#F9FAFB', fontFamily: 'var(--font-heading)' }}>
+                    <h4
+                      style={{
+                        fontSize: '18px',
+                        fontWeight: 700,
+                        color: '#F9FAFB',
+                        fontFamily: 'var(--font-heading)',
+                      }}
+                    >
                       {exp.role}
                     </h4>
-                    <p style={{ fontSize: '14px', color: '#3B82F6', fontWeight: 500 }}>{exp.company}</p>
+                    <p style={{ fontSize: '14px', color: '#38BDF8', fontWeight: 500, marginTop: '2px' }}>
+                      {exp.company}
+                    </p>
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
                     <span
@@ -122,7 +140,15 @@ export default function Experience() {
                   </div>
                 </div>
 
-                <ul style={{ listStyle: 'none', marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <ul
+                  style={{
+                    listStyle: 'none',
+                    marginTop: '20px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '12px',
+                  }}
+                >
                   {exp.responsibilities.map((r, j) => (
                     <li
                       key={j}
@@ -130,47 +156,54 @@ export default function Experience() {
                         display: 'flex',
                         alignItems: 'flex-start',
                         gap: '10px',
-                        fontSize: '14px',
-                        lineHeight: 1.6,
-                        color: '#9CA3AF',
+                        fontSize: '13.5px',
+                        lineHeight: 1.65,
+                        color: '#D1D5DB',
                       }}
                     >
-                      <span
+                      <CheckCircle2
+                        size={15}
                         style={{
-                          width: '6px',
-                          height: '6px',
-                          borderRadius: '50%',
-                          background: 'linear-gradient(135deg, #3B82F6, #06B6D4)',
-                          marginTop: '7px',
+                          color: '#38BDF8',
+                          marginTop: '3px',
                           flexShrink: 0,
                         }}
                       />
-                      {r}
+                      <span>{r}</span>
                     </li>
                   ))}
                 </ul>
               </motion.div>
             ))}
 
-            {/* Learning Journey Card */}
+            {/* Core Competencies Box */}
             <motion.div
               whileHover={{ y: -4 }}
               style={{
                 padding: '24px',
                 background: 'rgba(59, 130, 246, 0.05)',
-                border: '1px solid rgba(59, 130, 246, 0.12)',
+                border: '1px solid rgba(59, 130, 246, 0.15)',
                 borderRadius: '16px',
                 transition: 'all 0.3s ease',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
                 <FlaskConical size={18} style={{ color: '#06B6D4' }} />
                 <h4 style={{ fontSize: '15px', fontWeight: 700, color: '#F9FAFB', fontFamily: 'var(--font-heading)' }}>
-                  Continuous Learning
+                  Core Competencies in Practice
                 </h4>
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                {['Figma Mastery', 'UX Research Methods', 'Design Systems', 'Accessibility', 'Usability Testing', 'Design Thinking'].map((item) => (
+                {[
+                  'User Interviews & Surveys',
+                  'Figma Interactive Prototyping',
+                  'Adobe XD Wireframing',
+                  'Bilingual Design Systems',
+                  'Design Thinking',
+                  'Usability Testing Iterations',
+                  'WCAG Accessibility Basics',
+                  'Information Architecture',
+                ].map((item) => (
                   <span
                     key={item}
                     style={{
@@ -180,7 +213,7 @@ export default function Experience() {
                       borderRadius: '9999px',
                       fontSize: '12px',
                       fontWeight: 500,
-                      color: '#06B6D4',
+                      color: '#38BDF8',
                     }}
                   >
                     {item}
@@ -211,7 +244,7 @@ export default function Experience() {
                 <BookOpen size={20} style={{ color: '#06B6D4' }} />
               </div>
               <h3 style={{ fontSize: '20px', fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
-                Timeline
+                Education & Milestones
               </h3>
             </div>
 
@@ -230,7 +263,7 @@ export default function Experience() {
 
               {timelineItems.map((item, i) => {
                 const colors = {
-                  internship: '#3B82F6',
+                  project: '#3B82F6',
                   education: '#06B6D4',
                   achievement: '#F59E0B',
                 }
@@ -256,25 +289,32 @@ export default function Experience() {
                         borderRadius: '50%',
                         background: color,
                         border: '3px solid var(--color-bg)',
-                        boxShadow: `0 0 10px ${color}40`,
+                        boxShadow: `0 0 10px ${color}60`,
                       }}
                     />
 
                     <motion.div
                       whileHover={{ x: 4 }}
                       style={{
-                        padding: '20px',
+                        padding: '22px',
                         background: 'var(--color-bg-card)',
                         border: '1px solid var(--color-border)',
-                        borderRadius: '12px',
+                        borderRadius: '14px',
                         transition: 'all 0.3s ease',
                       }}
                     >
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                      <div
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          marginBottom: '6px',
+                        }}
+                      >
                         <span
                           style={{
                             fontSize: '12px',
-                            fontWeight: 600,
+                            fontWeight: 700,
                             color,
                             fontFamily: 'var(--font-mono)',
                           }}
@@ -308,10 +348,10 @@ export default function Experience() {
                       >
                         {item.title}
                       </h4>
-                      <p style={{ fontSize: '12px', color: '#9CA3AF', marginBottom: '6px' }}>
+                      <p style={{ fontSize: '13px', color: '#38BDF8', marginBottom: '8px', fontWeight: 500 }}>
                         {item.subtitle}
                       </p>
-                      <p style={{ fontSize: '13px', lineHeight: 1.6, color: '#6B7280' }}>
+                      <p style={{ fontSize: '13px', lineHeight: 1.6, color: '#9CA3AF' }}>
                         {item.description}
                       </p>
                     </motion.div>

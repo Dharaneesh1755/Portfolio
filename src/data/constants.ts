@@ -1,9 +1,7 @@
 import {
-  SiGooglechrome,
   SiFigma,
   SiSketch,
   SiMiro,
-  SiNotion,
   SiHtml5,
   SiBehance,
 } from 'react-icons/si'
@@ -28,8 +26,12 @@ import {
   PenTool,
   Paintbrush,
   Image,
-  Share2,
   Code,
+  Zap,
+  Award,
+  Globe,
+  MapPin,
+  CheckCircle2,
   type LucideIcon,
 } from 'lucide-react'
 import type { IconType } from 'react-icons'
@@ -52,20 +54,20 @@ export const navLinks = [
    ======================================== */
 export const heroData = {
   greeting: "Hello, I'm",
-  name: 'DHARANEESH R.S',
+  name: 'DHARANEESH.R.S',
   roles: [
     'UI/UX Designer',
-    'Product Designer',
     'UX Researcher',
+    'Figma & Adobe XD Prototyper',
+    'Design System Creator',
     'Design Thinker',
-    'Prototyping Specialist',
   ],
   summary:
-    'Creative and user-focused designer with a strong foundation in user-centered design, wireframing, and prototyping. Passionate about solving real user problems through intuitive, accessible, and visually engaging interfaces.',
+    'Creative and user-focused fresher with a strong foundation in user-centered design, wireframing, and prototyping. Skilled in conducting user research, building design systems, and creating high-fidelity interactive prototypes using Figma and Adobe XD. Passionate about solving real user problems through intuitive, accessible, and visually engaging interfaces.',
   cta: {
-    primary: 'Download Resume',
-    secondary: 'Contact Me',
-    tertiary: 'View Projects',
+    primary: 'View Case Studies',
+    secondary: 'Get in Touch',
+    tertiary: 'Behance Portfolio',
   },
 }
 
@@ -74,22 +76,24 @@ export const heroData = {
    ======================================== */
 export const aboutData = {
   intro:
-    'I am a creative and user-focused UI/UX Designer with a strong foundation in user-centered design principles. Currently pursuing my B.Sc. in Information Technology, I am passionate about crafting digital experiences that are not only beautiful but also functional and accessible.',
+    'I am a creative and user-focused UI/UX Designer and fresher with a strong foundation in user-centered design, wireframing, and prototyping. Currently pursuing my B.Sc. in Information Technology at Government Arts College, Coimbatore (Bharathiar University).',
   description:
-    'My approach combines rigorous user research with creative design thinking to deliver interfaces that solve real problems. From conducting user interviews with 20+ participants to building reusable design systems across 15+ screens, I bring both analytical precision and creative flair to every project.',
+    'Skilled in conducting user research with 15+ participants, developing design systems, and creating high-fidelity interactive prototypes using Figma and Adobe XD. Passionate about solving real user problems through intuitive, accessible, and visually engaging interfaces, and seeking a UI/UX Designer role to contribute to end-to-end product design.',
   highlights: [
-    { label: 'Location', value: 'Chennai, Tamil Nadu' },
-    { label: 'Education', value: 'B.Sc. Information Technology' },
-    { label: 'University', value: 'Bharathiar University' },
+    { label: 'Location', value: 'Chennai, Tamil Nadu, India' },
+    { label: 'Degree', value: 'B.Sc. (Information Technology)' },
+    { label: 'College', value: 'Govt Arts College, Coimbatore' },
+    { label: 'University', value: 'Bharathiar University (2023-2026)' },
     { label: 'Availability', value: 'Immediate Joiner' },
+    { label: 'Relocation', value: 'Willing to Relocate (Yes)' },
     { label: 'Languages', value: 'English, Tamil' },
-    { label: 'Willing to Relocate', value: 'Yes' },
+    { label: 'Schooling', value: 'RC Sacred Heart HSS (2022-2023)' },
   ],
   stats: [
-    { value: '20+', label: 'User Interviews' },
-    { value: '15+', label: 'Screens Designed' },
-    { value: '35%', label: 'Task Completion Boost' },
-    { value: '1000+', label: 'Case Study Views' },
+    { value: '15+', label: 'User Interviews & Surveys' },
+    { value: '41+', label: 'Screens Designed (25+16)' },
+    { value: '2', label: 'Behance Case Studies' },
+    { value: '1st/Finalist', label: 'College UI/UX Finalist' },
   ],
 }
 
@@ -113,76 +117,66 @@ export const skillCategories: SkillCategory[] = [
     title: 'Design Tools',
     icon: Palette,
     skills: [
-      { name: 'Figma', level: 92, icon: SiFigma },
-      { name: 'Adobe XD', level: 85, icon: PenTool },
-      { name: 'Sketch', level: 55, icon: SiSketch },
-      { name: 'Photoshop', level: 75, icon: Image },
-      { name: 'Illustrator', level: 70, icon: Paintbrush },
+      { name: 'Figma', level: 95, icon: SiFigma },
+      { name: 'Adobe XD', level: 88, icon: PenTool },
+      { name: 'Adobe Photoshop', level: 78, icon: Image },
+      { name: 'Adobe Illustrator', level: 75, icon: Paintbrush },
+      { name: 'Sketch (basic)', level: 60, icon: SiSketch },
     ],
   },
   {
     title: 'Prototyping & Wireframing',
     icon: Pen,
     skills: [
-      { name: 'Low-Fi Wireframes', level: 90, icon: null },
-      { name: 'High-Fi Wireframes', level: 88, icon: null },
-      { name: 'Interactive Prototypes', level: 90, icon: null },
-      { name: 'Design Systems', level: 82, icon: null },
+      { name: 'Low & High-Fidelity Wireframes', level: 92, icon: Layout },
+      { name: 'Interactive Prototypes', level: 94, icon: Smartphone },
+      { name: 'Design Systems', level: 88, icon: Layers },
     ],
   },
   {
     title: 'UX Research',
     icon: Search,
     skills: [
-      { name: 'User Interviews', level: 85, icon: null },
-      { name: 'Surveys & Personas', level: 80, icon: null },
-      { name: 'Journey Mapping', level: 82, icon: null },
-      { name: 'Usability Testing', level: 85, icon: null },
-      { name: 'Card Sorting', level: 70, icon: null },
+      { name: 'User Interviews & Surveys', level: 90, icon: Users },
+      { name: 'User Personas', level: 88, icon: Users },
+      { name: 'User Journey Mapping', level: 86, icon: Workflow },
+      { name: 'Usability Testing', level: 90, icon: Eye },
+      { name: 'Card Sorting', level: 78, icon: Grid3X3 },
     ],
   },
   {
-    title: 'Design Concepts',
+    title: 'Concepts & Principles',
     icon: Lightbulb,
     skills: [
-      { name: 'Design Thinking', level: 85, icon: null },
-      { name: 'Information Architecture', level: 78, icon: null },
-      { name: 'Accessibility (WCAG)', level: 72, icon: null },
-      { name: 'Responsive Design', level: 85, icon: null },
+      { name: 'Design Thinking', level: 92, icon: Lightbulb },
+      { name: 'Information Architecture', level: 86, icon: Layout },
+      { name: 'Accessibility (WCAG basics)', level: 82, icon: CheckCircle2 },
+      { name: 'Responsive Design', level: 90, icon: MonitorSmartphone },
     ],
   },
   {
-    title: 'Collaboration Tools',
+    title: 'Other Tools & Code',
     icon: Layers,
     skills: [
-      { name: 'Miro', level: 80, icon: SiMiro },
-      { name: 'InVision', level: 70, icon: Share2 },
-      { name: 'Notion', level: 75, icon: SiNotion },
-      { name: 'Zeplin', level: 65, icon: null },
-    ],
-  },
-  {
-    title: 'Development',
-    icon: MonitorSmartphone,
-    skills: [
-      { name: 'HTML', level: 60, icon: SiHtml5 },
-      { name: 'CSS', level: 58, icon: Code },
+      { name: 'Figjam / Miro', level: 85, icon: SiMiro },
+      { name: 'Zeplin', level: 75, icon: Layers },
+      { name: 'HTML / CSS (basic)', level: 68, icon: Code },
     ],
   },
 ]
 
 /* ========================================
-   TOOLS ICONS (Floating)
+   TOOLS ICONS (Floating in Hero)
    ======================================== */
 export const toolIcons = [
   { icon: SiFigma, label: 'Figma', color: '#F24E1E' },
   { icon: PenTool, label: 'Adobe XD', color: '#FF61F6' },
   { icon: Image, label: 'Photoshop', color: '#31A8FF' },
   { icon: Paintbrush, label: 'Illustrator', color: '#FF9A00' },
-  { icon: SiMiro, label: 'Miro', color: '#FFD02F' },
+  { icon: SiMiro, label: 'Miro / Figjam', color: '#FFD02F' },
   { icon: SiSketch, label: 'Sketch', color: '#F7B500' },
-  { icon: SiNotion, label: 'Notion', color: '#FFFFFF' },
   { icon: SiHtml5, label: 'HTML/CSS', color: '#E34F26' },
+  { icon: SiBehance, label: 'Behance', color: '#0057FF' },
 ]
 
 /* ========================================
@@ -200,61 +194,67 @@ export interface Project {
   features: string[]
   gradient: string
   icon: LucideIcon
+  behanceUrl: string
+  screensCount: string
 }
 
 export const projects: Project[] = [
   {
     id: 1,
-    title: 'Expense Tracker App',
-    subtitle: 'UX Case Study & Redesign',
+    title: 'Expense Tracker App Design',
+    subtitle: 'End-to-End UX Case Study (25 Screens)',
+    screensCount: '25 Screens',
     overview:
-      'A comprehensive UX case study focused on redesigning an expense tracker application to improve usability and user satisfaction through research-driven design decisions.',
+      'A comprehensive UX case study focused on identifying user pain points in daily personal expense management and designing an intuitive, accessible mobile app with interactive prototypes.',
     problem:
-      'Users struggled with complex navigation and unintuitive expense categorization, leading to low task completion rates and app abandonment.',
+      'Users experienced high friction and abandonment in typical expense apps due to confusing navigation, tedious transaction input, and lack of clear visual summaries of their spending habits.',
     solution:
-      'Conducted extensive user research with 20+ participants, created personas and journey maps, then redesigned the entire experience with simplified information architecture and intuitive interaction patterns.',
+      'Conducted user interviews and surveys with 15+ participants to discover core pain points. Built user personas, journey maps, and structured information architecture before designing low-fidelity wireframes and 25 high-fidelity interactive screens in Figma.',
     outcome:
-      'Improved task completion rate by 35% through iterative usability testing and design refinements, validated by multiple rounds of user feedback.',
-    tools: ['Figma', 'Miro', 'Maze'],
+      'Conducted usability testing and iteratively refined design decisions based on direct user feedback. Fully published as a comprehensive 25-screen case study on Behance.',
+    tools: ['Figma', 'Figjam', 'Google Forms', 'UX Research', 'Usability Testing'],
     features: [
+      '15+ User Interviews & Surveys',
       'User Personas & Journey Maps',
-      'Information Architecture',
+      'Information Architecture & Flows',
       'Low & High-Fidelity Wireframes',
-      'Interactive Prototypes',
-      'Usability Testing',
-      'Iterative Design',
+      '25 Interactive Figma Screens',
+      'Usability Testing Iterations',
     ],
     gradient: 'linear-gradient(135deg, #3B82F6, #06B6D4)',
     icon: BarChart3,
+    behanceUrl: 'https://behance.net/dharaneeshrs',
   },
   {
     id: 2,
-    title: 'E-Commerce Website',
-    subtitle: 'Checkout Flow UX Redesign',
+    title: 'Electricity Utility App Redesign',
+    subtitle: 'Bilingual (English/Tamil) UX Redesign (16 Screens)',
+    screensCount: '16 Screens',
     overview:
-      'A detailed UX case study aimed at reducing cart abandonment by redesigning the checkout experience of an e-commerce platform with a user-centered approach.',
+      'A strategic mobile app redesign for an electricity utility service engineered to make bill payments, power usage tracking, outage alerts, and complaint registrations seamless and dependable.',
     problem:
-      'High cart abandonment rates due to a confusing, multi-step checkout process with poor error handling and lack of trust signals.',
+      'Electricity consumers frequently faced confusion with bill payment verification, lacked clarity on real-time outage alerts, and suffered from poor accessibility without regional language support.',
     solution:
-      'Built a comprehensive reusable design system with consistent components across 15+ screens. Streamlined the checkout flow based on moderated usability testing insights.',
+      'Redesigned the entire payment and service flow from the ground up. Created a complete bilingual (English/Tamil) design system with standardized, accessible UI components across 16 screens, along with clickable interactive prototypes.',
     outcome:
-      'Created a fully documented case study published on Behance. The redesigned checkout flow significantly reduced friction points identified through user testing.',
-    tools: ['Adobe XD', 'Figma', 'Google Forms'],
+      'Streamlined bill payment, outage notifications, and grievance tracking into an intuitive flow. Documented the research methodology, design decisions, and finalized screens in a published Behance case study.',
+    tools: ['Figma', 'Bilingual UI (English/Tamil)', 'Design System', 'Prototyping', 'WCAG Basics'],
     features: [
-      'Design System',
-      '15+ Screen Components',
-      'Clickable Prototypes',
-      'Moderated Usability Tests',
-      'Checkout Flow Optimization',
-      'Published Case Study',
+      'Bilingual Support (English & Tamil)',
+      '16-Screen Reusable Design System',
+      'Instant Bill Payment Flow',
+      'Real-time Outage Alerts & Tracking',
+      'Grievance / Complaint Workflow',
+      'Published Case Study on Behance',
     ],
-    gradient: 'linear-gradient(135deg, #38BDF8, #818CF8)',
-    icon: Grid3X3,
+    gradient: 'linear-gradient(135deg, #0EA5E9, #6366F1)',
+    icon: Zap,
+    behanceUrl: 'https://behance.net/dharaneeshrs',
   },
 ]
 
 /* ========================================
-   EXPERIENCE DATA
+   EXPERIENCE / PRACTICAL DESIGN DATA
    ======================================== */
 export interface Experience {
   role: string
@@ -266,53 +266,66 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    role: 'UI/UX Design Intern',
-    company: 'Company Name, City',
-    duration: 'Jun 2025 - Aug 2025',
-    type: 'Internship',
+    role: 'UI/UX Designer (Academic & Case Study Projects)',
+    company: 'Portfolio & Behance Publications',
+    duration: '2023 - Present',
+    type: 'Academic & Practical',
     responsibilities: [
-      'Collaborated with product managers and developers to design user flows for a new feature module',
-      'Created wireframes and high-fidelity mockups in Figma, maintaining consistency with the existing design system',
-      'Conducted usability testing with 10+ users and incorporated feedback into final designs',
+      'Conducted qualitative user interviews and quantitative surveys with 15+ participants to pinpoint user friction in digital applications',
+      'Created detailed user personas, empathy maps, user journey maps, and information architecture diagrams to drive design decisions',
+      'Architected a 16-screen bilingual (English/Tamil) design system with reusable components, typography scales, and WCAG-compliant color contrasts',
+      'Produced low-fidelity wireframes and high-fidelity interactive prototypes in Figma with micro-interactions and realistic user flows',
+      'Executed moderated usability testing sessions, synthesized feedback, and iterated prototypes to optimize user task completion',
+      'Published 2 comprehensive end-to-end case studies (25-screen and 16-screen) on Behance documenting research, wireframes, and design rationale',
     ],
   },
 ]
 
 /* ========================================
-   TIMELINE DATA
+   TIMELINE DATA (Education & Milestones)
    ======================================== */
 export interface TimelineItem {
   year: string
   title: string
   subtitle: string
   description: string
-  type: 'education' | 'internship' | 'achievement'
+  type: 'education' | 'achievement' | 'project'
   icon: LucideIcon
 }
 
 export const timelineItems: TimelineItem[] = [
   {
-    year: '2025',
-    title: 'UI/UX Design Intern',
-    subtitle: 'Jun 2025 – Aug 2025',
-    description:
-      'Designed user flows, wireframes, and high-fidelity mockups. Conducted usability testing with 10+ users.',
-    type: 'internship',
-    icon: Workflow,
-  },
-  {
-    year: '2023 – 2026',
-    title: 'B.Sc. Information Technology',
+    year: '2023 - 2026',
+    title: 'Bachelor of Science (Information Technology)',
     subtitle: 'Government Arts College, Coimbatore | Bharathiar University',
-    description: 'Pursuing undergraduate degree with focus on IT fundamentals and design.',
+    description:
+      'Pursuing undergraduate IT degree with deep focus on human-computer interaction, web technologies, and user experience methodologies.',
     type: 'education',
     icon: ClipboardList,
   },
   {
-    year: '2022 – 2023',
-    title: 'Higher Secondary Certificate',
+    year: '2024',
+    title: 'Finalist - College-Level UI/UX Design Competition',
+    subtitle: 'College Design Contest',
+    description:
+      'Recognized as a finalist for rapid prototyping, user empathy, and effective UI design in a competitive design challenge.',
+    type: 'achievement',
+    icon: Award,
+  },
+  {
+    year: '2023 - 2024',
+    title: 'Published Behance UX Case Studies',
+    subtitle: 'Expense Tracker (25 Screens) & Electricity Utility Redesign (16 Screens)',
+    description:
+      'Conducted end-to-end user research, information architecture, wireframing, bilingual design systems, and published comprehensive case studies.',
+    type: 'project',
+    icon: Workflow,
+  },
+  {
+    year: '2022 - 2023',
+    title: 'Higher Secondary Certificate (12th Grade)',
     subtitle: 'RC Sacred Heart Higher Secondary School',
-    description: 'Completed 12th Grade with 74.1% score.',
+    description: 'Completed higher secondary school education with strong academic foundation.',
     type: 'education',
     icon: ClipboardList,
   },
@@ -331,25 +344,25 @@ export interface Certification {
 
 export const certifications: Certification[] = [
   {
-    title: 'Google UX Design Professional Certificate',
-    provider: 'Google',
-    platform: 'Coursera',
-    icon: SiGooglechrome,
-    color: '#4285F4',
-  },
-  {
-    title: 'UI/UX Design Specialization',
-    provider: 'Certified',
-    platform: 'Udemy / Coursera',
-    icon: Layout,
-    color: '#38BDF8',
-  },
-  {
-    title: 'Figma for UI/UX Design',
-    provider: 'Design+Code',
-    platform: 'Udemy',
+    title: 'Figma UI/UX Designing Tool Certificate',
+    provider: 'Lementro Global Learning Platform',
+    platform: 'Certification Course',
     icon: SiFigma,
     color: '#F24E1E',
+  },
+  {
+    title: 'Design Thinking for Beginners',
+    provider: 'Simplilearn SkillUp',
+    platform: 'SkillUp Certification',
+    icon: Lightbulb,
+    color: '#06B6D4',
+  },
+  {
+    title: 'UI/UX Webinar',
+    provider: 'Brand Monk Academy',
+    platform: 'Professional Webinar',
+    icon: MonitorSmartphone,
+    color: '#3B82F6',
   },
 ]
 
@@ -358,19 +371,22 @@ export const certifications: Certification[] = [
    ======================================== */
 export const achievements = [
   {
-    title: 'Published UX Case Studies',
-    description: '2+ case studies on Behance/Medium with 1,000+ combined views',
+    title: 'Published 25-Screen Expense Tracker Case Study',
+    description:
+      'Researched with 15+ participants, designed personas, low/high-fi wireframes, and published an interactive 25-screen case study on Behance.',
     icon: Eye,
   },
   {
-    title: 'Design Hackathon',
-    description: 'Winner/Finalist at College-Level UI/UX Design Hackathon',
-    icon: Target,
+    title: 'Published 16-Screen Electricity App Redesign',
+    description:
+      'Engineered a complete bilingual (English/Tamil) design system with consistent reusable components and published on Behance.',
+    icon: Zap,
   },
   {
-    title: 'Design Community',
-    description: 'Active member of College Design/HCI Club',
-    icon: Users,
+    title: 'Finalist, College-Level UI/UX Design Competition',
+    description:
+      'Secured finalist position at college-level UI/UX competition demonstrating rapid wireframing and human-centric design thinking.',
+    icon: Award,
   },
 ]
 
@@ -378,11 +394,16 @@ export const achievements = [
    CONTACT DATA
    ======================================== */
 export const contactInfo = {
+  name: 'Dharaneesh R.S',
+  role: 'UI/UX Designer',
   email: 'dharaneeshsuhas1755@gmail.com',
   phone: '+91-8122953599',
   location: 'Chennai, Tamil Nadu, India',
-  linkedin: 'https://linkedin.com/in/dharaneesh-rs-059479357/',
-  portfolio: 'https://behance.net/yourusername',
+  linkedin: 'https://linkedin.com/in/dharaneesh-rs-059479357',
+  portfolio: 'https://behance.net/dharaneeshrs',
+  languages: 'English, Tamil',
+  relocation: 'Willing to Relocate (Yes)',
+  availability: 'Immediate Joiner',
 }
 
 /* ========================================
@@ -392,25 +413,29 @@ export const designProcess = [
   {
     step: '01',
     title: 'Research',
-    description: 'User interviews, surveys, competitive analysis, and persona creation',
+    description:
+      'User interviews (15+ participants), surveys, pain-point analysis, and persona mapping',
     icon: Search,
   },
   {
     step: '02',
-    title: 'Define',
-    description: 'User flows, information architecture, and journey mapping',
+    title: 'Define & Plan',
+    description:
+      'User journey mapping, information architecture, card sorting, and accessibility benchmarks',
     icon: Target,
   },
   {
     step: '03',
-    title: 'Design',
-    description: 'Wireframes, high-fidelity mockups, and interactive prototypes',
+    title: 'Design & Prototype',
+    description:
+      'Low & high-fidelity wireframing, bilingual design systems, and interactive Figma prototyping',
     icon: Pen,
   },
   {
     step: '04',
-    title: 'Test',
-    description: 'Usability testing, iteration, and design validation',
+    title: 'Test & Validate',
+    description:
+      'Usability testing, feedback evaluation, iterative refinement, and Behance case study documentation',
     icon: MessageSquare,
   },
 ]

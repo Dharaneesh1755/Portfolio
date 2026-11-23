@@ -9,8 +9,11 @@ import {
   Send,
   CheckCircle2,
   Loader2,
+  Globe,
+  Briefcase,
 } from 'lucide-react'
 import { FaLinkedinIn } from 'react-icons/fa'
+import { SiBehance } from 'react-icons/si'
 import { contactInfo } from '../data/constants'
 import { fadeInUp, fadeInLeft, fadeInRight } from '../utils/animations'
 
@@ -23,7 +26,7 @@ export default function Contact() {
     e.preventDefault()
     setFormState('sending')
     // Simulate sending
-    await new Promise((r) => setTimeout(r, 1500))
+    await new Promise((r) => setTimeout(r, 1200))
     setFormState('sent')
     setTimeout(() => {
       setFormState('idle')
@@ -43,7 +46,7 @@ export default function Contact() {
       icon: Phone,
       label: 'Phone',
       value: contactInfo.phone,
-      href: `tel:${contactInfo.phone}`,
+      href: `tel:${contactInfo.phone.replace(/[^0-9+]/g, '')}`,
       color: '#06B6D4',
     },
     {
@@ -56,16 +59,16 @@ export default function Contact() {
     {
       icon: FaLinkedinIn,
       label: 'LinkedIn',
-      value: 'Connect on LinkedIn',
+      value: 'linkedin.com/in/dharaneesh-rs-059479357',
       href: contactInfo.linkedin,
       color: '#0A66C2',
     },
     {
-      icon: ExternalLink,
-      label: 'Portfolio',
-      value: 'View on Behance',
+      icon: SiBehance,
+      label: 'Portfolio (Behance)',
+      value: 'behance.net/dharaneeshrs',
       href: contactInfo.portfolio,
-      color: '#1769FF',
+      color: '#0057FF',
     },
   ]
 
@@ -101,17 +104,17 @@ export default function Contact() {
         >
           <span className="section-label">Get in Touch</span>
           <h2 className="section-title">
-            Let's <span className="gradient-text">Connect</span>
+            Let's <span className="gradient-text">Connect</span> & Collaborate
           </h2>
           <p className="section-subtitle">
-            Interested in working together? I'd love to hear from you.
+            Seeking full-time UI/UX Designer opportunities. Available to join immediately.
           </p>
         </motion.div>
 
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 1.2fr',
+            gridTemplateColumns: '1.1fr 1.2fr',
             gap: '48px',
             alignItems: 'start',
           }}
@@ -134,9 +137,80 @@ export default function Contact() {
             >
               Contact Information
             </h3>
-            <p style={{ fontSize: '14px', color: '#9CA3AF', marginBottom: '28px', lineHeight: 1.7 }}>
-              Feel free to reach out through any of these channels. I'm always open to discussing new projects and opportunities.
+            <p style={{ fontSize: '14px', color: '#9CA3AF', marginBottom: '24px', lineHeight: 1.7 }}>
+              I am actively seeking an entry-level / fresher UI/UX Designer role where I can contribute to end-to-end product design, wireframing, and user research.
             </p>
+
+            {/* Availability Badges */}
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '10px',
+                marginBottom: '24px',
+              }}
+            >
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '6px 14px',
+                  background: 'rgba(34, 197, 94, 0.12)',
+                  border: '1px solid rgba(34, 197, 94, 0.25)',
+                  borderRadius: '9999px',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  color: '#4ADE80',
+                }}
+              >
+                <span
+                  style={{
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    background: '#22C55E',
+                  }}
+                />
+                Availability: Immediate Joiner
+              </span>
+
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '6px 14px',
+                  background: 'rgba(59, 130, 246, 0.12)',
+                  border: '1px solid rgba(59, 130, 246, 0.25)',
+                  borderRadius: '9999px',
+                  fontSize: '12px',
+                  fontWeight: 500,
+                  color: '#38BDF8',
+                }}
+              >
+                <MapPin size={12} />
+                Relocation: Yes
+              </span>
+
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '6px 14px',
+                  background: 'rgba(6, 182, 212, 0.12)',
+                  border: '1px solid rgba(6, 182, 212, 0.25)',
+                  borderRadius: '9999px',
+                  fontSize: '12px',
+                  fontWeight: 500,
+                  color: '#06B6D4',
+                }}
+              >
+                <Globe size={12} />
+                Languages: English, Tamil
+              </span>
+            </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
               {contactItems.map((item) => (
@@ -145,7 +219,7 @@ export default function Contact() {
                   href={item.href}
                   target={item.href.startsWith('http') ? '_blank' : undefined}
                   rel="noopener noreferrer"
-                  whileHover={{ x: 6, boxShadow: `0 0 16px ${item.color}15` }}
+                  whileHover={{ x: 6, boxShadow: `0 0 16px ${item.color}18` }}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -160,10 +234,11 @@ export default function Contact() {
                 >
                   <div
                     style={{
-                      width: '40px',
-                      height: '40px',
+                      width: '42px',
+                      height: '42px',
                       borderRadius: '10px',
                       background: `${item.color}15`,
+                      border: `1px solid ${item.color}30`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -172,11 +247,28 @@ export default function Contact() {
                   >
                     <item.icon size={18} style={{ color: item.color }} />
                   </div>
-                  <div>
-                    <div style={{ fontSize: '11px', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '2px' }}>
+                  <div style={{ minWidth: 0 }}>
+                    <div
+                      style={{
+                        fontSize: '11px',
+                        color: '#9CA3AF',
+                        textTransform: 'uppercase',
+                        letterSpacing: '1px',
+                        marginBottom: '2px',
+                      }}
+                    >
                       {item.label}
                     </div>
-                    <div style={{ fontSize: '14px', fontWeight: 500, color: '#F9FAFB' }}>
+                    <div
+                      style={{
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        color: '#F9FAFB',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
                       {item.value}
                     </div>
                   </div>
@@ -226,97 +318,106 @@ export default function Contact() {
                 Send me a message
               </h3>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}
+              <div
+                style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}
                 className="form-row"
               >
                 <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#9CA3AF', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    Name
+                  <label
+                    style={{
+                      display: 'block',
+                      fontSize: '12px',
+                      fontWeight: 600,
+                      color: '#9CA3AF',
+                      marginBottom: '6px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px',
+                    }}
+                  >
+                    Your Name
                   </label>
                   <input
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="Your name"
+                    placeholder="Recruiter / Client name"
                     required
                     style={inputStyle}
-                    onFocus={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)'
-                      e.currentTarget.style.boxShadow = '0 0 12px rgba(59, 130, 246, 0.15)'
-                    }}
-                    onBlur={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.15)'
-                      e.currentTarget.style.boxShadow = 'none'
-                    }}
                   />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#9CA3AF', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    Email
+                  <label
+                    style={{
+                      display: 'block',
+                      fontSize: '12px',
+                      fontWeight: 600,
+                      color: '#9CA3AF',
+                      marginBottom: '6px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px',
+                    }}
+                  >
+                    Your Email
                   </label>
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="your@email.com"
+                    placeholder="email@company.com"
                     required
                     style={inputStyle}
-                    onFocus={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)'
-                      e.currentTarget.style.boxShadow = '0 0 12px rgba(59, 130, 246, 0.15)'
-                    }}
-                    onBlur={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.15)'
-                      e.currentTarget.style.boxShadow = 'none'
-                    }}
                   />
                 </div>
               </div>
 
               <div style={{ marginBottom: '16px' }}>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#9CA3AF', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                <label
+                  style={{
+                    display: 'block',
+                    fontSize: '12px',
+                    fontWeight: 600,
+                    color: '#9CA3AF',
+                    marginBottom: '6px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                  }}
+                >
                   Subject
                 </label>
                 <input
                   type="text"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  placeholder="Project inquiry, collaboration, etc."
+                  placeholder="UI/UX Designer Role / Project Discussion"
                   required
                   style={inputStyle}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)'
-                    e.currentTarget.style.boxShadow = '0 0 12px rgba(59, 130, 246, 0.15)'
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.15)'
-                    e.currentTarget.style.boxShadow = 'none'
-                  }}
                 />
               </div>
 
               <div style={{ marginBottom: '24px' }}>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#9CA3AF', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                <label
+                  style={{
+                    display: 'block',
+                    fontSize: '12px',
+                    fontWeight: 600,
+                    color: '#9CA3AF',
+                    marginBottom: '6px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                  }}
+                >
                   Message
                 </label>
                 <textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Tell me about your project..."
+                  placeholder="Hi Dharaneesh, we would like to invite you for an interview..."
                   required
                   rows={5}
                   style={{
                     ...inputStyle,
                     resize: 'vertical' as const,
                     minHeight: '120px',
-                  }}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)'
-                    e.currentTarget.style.boxShadow = '0 0 12px rgba(59, 130, 246, 0.15)'
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.15)'
-                    e.currentTarget.style.boxShadow = 'none'
                   }}
                 />
               </div>

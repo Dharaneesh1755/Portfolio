@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { ExternalLink, ChevronDown, ChevronUp, Layers } from 'lucide-react'
+import { ExternalLink, ChevronDown, ChevronUp, Layers, CheckCircle2 } from 'lucide-react'
+import { SiBehance } from 'react-icons/si'
 import { projects } from '../data/constants'
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations'
 
@@ -23,7 +24,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       {/* Project Header Gradient */}
       <div
         style={{
-          height: '200px',
+          height: '210px',
           background: project.gradient,
           position: 'relative',
           display: 'flex',
@@ -37,38 +38,65 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)',
+            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)',
             backgroundSize: '24px 24px',
           }}
         />
 
+        {/* Top Badges */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '16px',
+            right: '16px',
+            display: 'flex',
+            gap: '8px',
+          }}
+        >
+          <span
+            style={{
+              padding: '4px 12px',
+              background: 'rgba(0, 0, 0, 0.4)',
+              backdropFilter: 'blur(8px)',
+              borderRadius: '9999px',
+              fontSize: '11px',
+              fontWeight: 600,
+              color: 'white',
+              fontFamily: 'var(--font-mono)',
+            }}
+          >
+            {project.screensCount}
+          </span>
+        </div>
+
         <div style={{ position: 'relative', textAlign: 'center' }}>
           <div
             style={{
-              width: '64px',
-              height: '64px',
-              borderRadius: '16px',
-              background: 'rgba(255,255,255,0.2)',
+              width: '68px',
+              height: '68px',
+              borderRadius: '18px',
+              background: 'rgba(255,255,255,0.22)',
               backdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               margin: '0 auto 12px',
             }}
           >
-            <project.icon size={28} style={{ color: 'white' }} />
+            <project.icon size={32} style={{ color: 'white' }} />
           </div>
           <span
             style={{
               fontSize: '12px',
-              fontWeight: 600,
-              color: 'rgba(255,255,255,0.8)',
+              fontWeight: 700,
+              color: 'rgba(255,255,255,0.9)',
               textTransform: 'uppercase',
               letterSpacing: '2px',
               fontFamily: 'var(--font-mono)',
             }}
           >
-            Case Study #{index + 1}
+            Academic UX Case Study #{index + 1}
           </span>
         </div>
       </div>
@@ -89,7 +117,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         <p
           style={{
             fontSize: '14px',
-            color: '#3B82F6',
+            color: '#38BDF8',
             fontWeight: 500,
             marginBottom: '16px',
             fontFamily: 'var(--font-mono)',
@@ -154,8 +182,17 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               >
                 {/* Problem */}
                 <div style={{ marginBottom: '16px' }}>
-                  <h4 style={{ fontSize: '13px', fontWeight: 700, color: '#F87171', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    Problem
+                  <h4
+                    style={{
+                      fontSize: '12px',
+                      fontWeight: 700,
+                      color: '#F87171',
+                      marginBottom: '6px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px',
+                    }}
+                  >
+                    Problem Statement
                   </h4>
                   <p style={{ fontSize: '14px', lineHeight: 1.7, color: '#9CA3AF' }}>
                     {project.problem}
@@ -164,8 +201,17 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
                 {/* Solution */}
                 <div style={{ marginBottom: '16px' }}>
-                  <h4 style={{ fontSize: '13px', fontWeight: 700, color: '#34D399', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    Solution
+                  <h4
+                    style={{
+                      fontSize: '12px',
+                      fontWeight: 700,
+                      color: '#34D399',
+                      marginBottom: '6px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px',
+                    }}
+                  >
+                    Design Solution
                   </h4>
                   <p style={{ fontSize: '14px', lineHeight: 1.7, color: '#9CA3AF' }}>
                     {project.solution}
@@ -174,8 +220,17 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
                 {/* Outcome */}
                 <div style={{ marginBottom: '16px' }}>
-                  <h4 style={{ fontSize: '13px', fontWeight: 700, color: '#3B82F6', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    Outcome
+                  <h4
+                    style={{
+                      fontSize: '12px',
+                      fontWeight: 700,
+                      color: '#38BDF8',
+                      marginBottom: '6px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px',
+                    }}
+                  >
+                    Outcome & Validation
                   </h4>
                   <p style={{ fontSize: '14px', lineHeight: 1.7, color: '#9CA3AF' }}>
                     {project.outcome}
@@ -184,8 +239,17 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
                 {/* Features */}
                 <div>
-                  <h4 style={{ fontSize: '13px', fontWeight: 700, color: '#F9FAFB', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    Key Features
+                  <h4
+                    style={{
+                      fontSize: '12px',
+                      fontWeight: 700,
+                      color: '#F9FAFB',
+                      marginBottom: '10px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px',
+                    }}
+                  >
+                    Key Project Highlights
                   </h4>
                   <div
                     style={{
@@ -202,10 +266,10 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                           alignItems: 'center',
                           gap: '8px',
                           fontSize: '13px',
-                          color: '#9CA3AF',
+                          color: '#D1D5DB',
                         }}
                       >
-                        <Layers size={12} style={{ color: '#3B82F6', flexShrink: 0 }} />
+                        <CheckCircle2 size={13} style={{ color: '#38BDF8', flexShrink: 0 }} />
                         {f}
                       </div>
                     ))}
@@ -217,10 +281,10 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         </AnimatePresence>
 
         {/* Actions */}
-        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
             onClick={() => setExpanded(!expanded)}
             style={{
               display: 'flex',
@@ -230,7 +294,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               background: 'rgba(59, 130, 246, 0.1)',
               border: '1px solid rgba(59, 130, 246, 0.3)',
               borderRadius: '9999px',
-              color: '#3B82F6',
+              color: '#38BDF8',
               fontSize: '13px',
               fontWeight: 600,
               cursor: 'pointer',
@@ -242,9 +306,11 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           </motion.button>
 
           <motion.a
-            href="#"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            href={project.behanceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.04, boxShadow: '0 0 20px rgba(59, 130, 246, 0.4)' }}
+            whileTap={{ scale: 0.96 }}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -258,8 +324,9 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               textDecoration: 'none',
             }}
           >
-            <ExternalLink size={14} />
-            View on Behance
+            <SiBehance size={14} />
+            <span>View on Behance</span>
+            <ExternalLink size={12} style={{ marginLeft: '2px' }} />
           </motion.a>
         </div>
       </div>
@@ -280,12 +347,12 @@ export default function Projects() {
           animate={inView ? 'visible' : 'hidden'}
           custom={0}
         >
-          <span className="section-label">Featured Work</span>
+          <span className="section-label">Academic Projects</span>
           <h2 className="section-title">
-            UX Case <span className="gradient-text">Studies</span>
+            Featured UX <span className="gradient-text">Case Studies</span>
           </h2>
           <p className="section-subtitle">
-            Research-driven design projects showcasing end-to-end problem solving
+            User-centered design projects documenting research, wireframing, bilingual design systems, and Figma prototypes
           </p>
         </motion.div>
 

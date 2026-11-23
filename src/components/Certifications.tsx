@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Award, ExternalLink } from 'lucide-react'
-import { certifications, achievements } from '../data/constants'
+import { Award, ExternalLink, Sparkles } from 'lucide-react'
+import { SiBehance } from 'react-icons/si'
+import { certifications, achievements, contactInfo } from '../data/constants'
 import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations'
 
 export default function Certifications() {
@@ -17,16 +18,16 @@ export default function Certifications() {
           animate={inView ? 'visible' : 'hidden'}
           custom={0}
         >
-          <span className="section-label">Credentials</span>
+          <span className="section-label">Certificates & Recognition</span>
           <h2 className="section-title">
             Certifications & <span className="gradient-text">Achievements</span>
           </h2>
           <p className="section-subtitle">
-            Validated skills and recognized accomplishments
+            Professional learning credentials and demonstrated design accomplishments
           </p>
         </motion.div>
 
-        {/* Certifications */}
+        {/* Certifications Grid */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -45,7 +46,7 @@ export default function Certifications() {
               <motion.div
                 key={cert.title}
                 variants={staggerItem}
-                whileHover={{ y: -6, boxShadow: `0 0 24px ${cert.color}20` }}
+                whileHover={{ y: -6, boxShadow: `0 0 24px ${cert.color}25` }}
                 style={{
                   padding: '28px',
                   background: 'var(--color-bg-card)',
@@ -54,6 +55,9 @@ export default function Certifications() {
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'all 0.3s ease',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
                 }}
               >
                 {/* Top color accent */}
@@ -68,54 +72,55 @@ export default function Certifications() {
                   }}
                 />
 
-                {/* Badge */}
-                <div
-                  style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '14px',
-                    background: `${cert.color}15`,
-                    border: `1px solid ${cert.color}30`,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px',
-                  }}
-                >
-                  <IconComp size={26} style={{ color: cert.color }} />
+                <div>
+                  {/* Badge Icon */}
+                  <div
+                    style={{
+                      width: '56px',
+                      height: '56px',
+                      borderRadius: '14px',
+                      background: `${cert.color}15`,
+                      border: `1px solid ${cert.color}35`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '20px',
+                    }}
+                  >
+                    <IconComp size={26} style={{ color: cert.color }} />
+                  </div>
+
+                  <h3
+                    style={{
+                      fontSize: '16px',
+                      fontWeight: 700,
+                      color: '#F9FAFB',
+                      marginBottom: '8px',
+                      fontFamily: 'var(--font-heading)',
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {cert.title}
+                  </h3>
+
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      marginBottom: '20px',
+                      flexWrap: 'wrap',
+                    }}
+                  >
+                    <span style={{ fontSize: '13px', color: '#38BDF8', fontWeight: 500 }}>
+                      {cert.provider}
+                    </span>
+                    <span style={{ fontSize: '13px', color: '#4B5563' }}>•</span>
+                    <span style={{ fontSize: '12px', color: '#9CA3AF' }}>{cert.platform}</span>
+                  </div>
                 </div>
 
-                <h3
-                  style={{
-                    fontSize: '16px',
-                    fontWeight: 700,
-                    color: '#F9FAFB',
-                    marginBottom: '8px',
-                    fontFamily: 'var(--font-heading)',
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {cert.title}
-                </h3>
-
                 <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    marginBottom: '16px',
-                  }}
-                >
-                  <span style={{ fontSize: '13px', color: '#9CA3AF', fontWeight: 500 }}>
-                    {cert.provider}
-                  </span>
-                  <span style={{ fontSize: '13px', color: '#4B5563' }}>•</span>
-                  <span style={{ fontSize: '13px', color: '#6B7280' }}>{cert.platform}</span>
-                </div>
-
-                <motion.a
-                  href="#"
-                  whileHover={{ scale: 1.05 }}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -127,29 +132,36 @@ export default function Certifications() {
                     fontSize: '12px',
                     fontWeight: 600,
                     color: cert.color,
-                    textDecoration: 'none',
-                    transition: 'all 0.3s ease',
+                    width: 'fit-content',
                   }}
                 >
-                  <ExternalLink size={12} />
-                  View Certificate
-                </motion.a>
+                  <Sparkles size={13} />
+                  <span>Verified Credential</span>
+                </div>
               </motion.div>
             )
           })}
         </motion.div>
 
-        {/* Achievements */}
+        {/* Achievements Section */}
         <motion.div
           variants={fadeInUp}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
           custom={0.4}
         >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '32px' }}>
-            <Award size={22} style={{ color: '#F59E0B' }} />
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '12px',
+              marginBottom: '32px',
+            }}
+          >
+            <Award size={24} style={{ color: '#F59E0B' }} />
             <h3 style={{ fontSize: '22px', fontWeight: 700, fontFamily: 'var(--font-heading)' }}>
-              Achievements
+              Key Achievements & Recognitions
             </h3>
           </div>
 
@@ -168,44 +180,70 @@ export default function Certifications() {
               <motion.div
                 key={ach.title}
                 variants={staggerItem}
-                whileHover={{ y: -4, boxShadow: '0 0 20px rgba(245, 158, 11, 0.1)' }}
+                whileHover={{ y: -4, boxShadow: '0 0 20px rgba(245, 158, 11, 0.15)' }}
                 style={{
                   padding: '24px',
                   background: 'rgba(17, 24, 39, 0.6)',
-                  border: '1px solid rgba(245, 158, 11, 0.1)',
-                  borderRadius: '14px',
+                  border: '1px solid rgba(245, 158, 11, 0.18)',
+                  borderRadius: '16px',
                   textAlign: 'center',
                   transition: 'all 0.3s ease',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
                 }}
               >
                 <div
                   style={{
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: '12px',
-                    background: 'rgba(245, 158, 11, 0.1)',
+                    width: '50px',
+                    height: '50px',
+                    borderRadius: '14px',
+                    background: 'rgba(245, 158, 11, 0.12)',
+                    border: '1px solid rgba(245, 158, 11, 0.25)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    margin: '0 auto 14px',
+                    margin: '0 auto 16px',
                   }}
                 >
-                  <ach.icon size={22} style={{ color: '#F59E0B' }} />
+                  <ach.icon size={24} style={{ color: '#F59E0B' }} />
                 </div>
                 <h4
                   style={{
                     fontSize: '15px',
                     fontWeight: 700,
                     color: '#F9FAFB',
-                    marginBottom: '6px',
+                    marginBottom: '8px',
                     fontFamily: 'var(--font-heading)',
                   }}
                 >
                   {ach.title}
                 </h4>
-                <p style={{ fontSize: '13px', lineHeight: 1.6, color: '#9CA3AF' }}>
+                <p style={{ fontSize: '13px', lineHeight: 1.6, color: '#9CA3AF', marginBottom: '16px' }}>
                   {ach.description}
                 </p>
+
+                {ach.title.includes('Behance') && (
+                  <a
+                    href={contactInfo.portfolio}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      marginTop: 'auto',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      fontSize: '12px',
+                      fontWeight: 600,
+                      color: '#60A5FA',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <SiBehance size={14} />
+                    <span>View Case Study</span>
+                    <ExternalLink size={11} />
+                  </a>
+                )}
               </motion.div>
             ))}
           </motion.div>

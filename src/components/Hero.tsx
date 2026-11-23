@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
-import { Download, Mail, ArrowDown } from 'lucide-react'
-import { heroData, toolIcons } from '../data/constants'
+import { Download, Mail, ArrowDown, ExternalLink, Sparkles, MapPin } from 'lucide-react'
+import { SiBehance } from 'react-icons/si'
+import { FaLinkedinIn } from 'react-icons/fa'
+import { heroData, toolIcons, contactInfo } from '../data/constants'
 import { useTypingEffect } from '../hooks/useAnimations'
 import { fadeInUp } from '../utils/animations'
 
@@ -26,11 +28,11 @@ export default function Hero() {
       <div
         className="gradient-blob"
         style={{
-          width: '250px',
-          height: '250px',
-          background: '#818CF8',
+          width: '260px',
+          height: '260px',
+          background: '#0EA5E9',
           top: '20%',
-          left: '15%',
+          left: '12%',
           animation: 'blobFloat 14s ease-in-out infinite',
           opacity: 0.08,
         }}
@@ -41,7 +43,7 @@ export default function Hero() {
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.06) 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.07) 1px, transparent 0)`,
           backgroundSize: '40px 40px',
           pointerEvents: 'none',
         }}
@@ -59,13 +61,13 @@ export default function Hero() {
         {toolIcons.map((tool, i) => {
           const positions = [
             { top: '15%', left: '8%' },
-            { top: '20%', right: '10%' },
-            { top: '60%', left: '5%' },
-            { top: '70%', right: '8%' },
-            { top: '35%', left: '3%' },
-            { top: '45%', right: '5%' },
-            { top: '80%', left: '15%' },
-            { top: '25%', right: '18%' },
+            { top: '22%', right: '10%' },
+            { top: '60%', left: '6%' },
+            { top: '72%', right: '9%' },
+            { top: '38%', left: '4%' },
+            { top: '48%', right: '6%' },
+            { top: '82%', left: '16%' },
+            { top: '28%', right: '18%' },
           ]
           const pos = positions[i % positions.length]
           return (
@@ -73,7 +75,7 @@ export default function Hero() {
               key={tool.label}
               initial={{ opacity: 0 }}
               animate={{
-                opacity: 0.2,
+                opacity: 0.22,
                 y: [0, -15, 0],
               }}
               transition={{
@@ -104,41 +106,71 @@ export default function Hero() {
           position: 'relative',
           zIndex: 1,
           textAlign: 'center',
-          maxWidth: '800px',
+          maxWidth: '860px',
         }}
       >
-        {/* Greeting Badge */}
+        {/* Badges Container */}
         <motion.div
           variants={fadeInUp}
           initial="hidden"
           animate="visible"
           custom={0}
           style={{
-            display: 'inline-flex',
+            display: 'flex',
+            flexWrap: 'wrap',
             alignItems: 'center',
-            gap: '8px',
-            padding: '8px 20px',
-            background: 'rgba(59, 130, 246, 0.1)',
-            border: '1px solid rgba(59, 130, 246, 0.2)',
-            borderRadius: '9999px',
+            justifyContent: 'center',
+            gap: '10px',
             marginBottom: '24px',
-            fontSize: '14px',
-            fontWeight: 500,
-            color: '#38BDF8',
-            fontFamily: 'var(--font-mono)',
           }}
         >
-          <span
+          {/* Status Badge */}
+          <div
             style={{
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              background: '#22C55E',
-              animation: 'pulse-glow 2s ease-in-out infinite',
-              boxShadow: '0 0 8px rgba(34, 197, 94, 0.5)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '8px 18px',
+              background: 'rgba(34, 197, 94, 0.1)',
+              border: '1px solid rgba(34, 197, 94, 0.25)',
+              borderRadius: '9999px',
+              fontSize: '13px',
+              fontWeight: 600,
+              color: '#4ADE80',
+              fontFamily: 'var(--font-mono)',
             }}
-          />
-          Open to Opportunities
+          >
+            <span
+              style={{
+                width: '8px',
+                height: '8px',
+                borderRadius: '50%',
+                background: '#22C55E',
+                boxShadow: '0 0 10px rgba(34, 197, 94, 0.8)',
+              }}
+            />
+            Immediate Joiner • Open to Roles
+          </div>
+
+          {/* Location Badge */}
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '8px 16px',
+              background: 'rgba(59, 130, 246, 0.1)',
+              border: '1px solid rgba(59, 130, 246, 0.2)',
+              borderRadius: '9999px',
+              fontSize: '13px',
+              fontWeight: 500,
+              color: '#38BDF8',
+              fontFamily: 'var(--font-mono)',
+            }}
+          >
+            <MapPin size={14} style={{ color: '#38BDF8' }} />
+            Chennai, India • Willing to Relocate
+          </div>
         </motion.div>
 
         {/* Name */}
@@ -148,12 +180,12 @@ export default function Hero() {
           animate="visible"
           custom={0.15}
           style={{
-            fontSize: 'clamp(36px, 7vw, 72px)',
+            fontSize: 'clamp(38px, 7vw, 76px)',
             fontWeight: 900,
             fontFamily: 'var(--font-heading)',
             lineHeight: 1.1,
             marginBottom: '16px',
-            letterSpacing: '-2px',
+            letterSpacing: '-1.5px',
           }}
         >
           <span style={{ color: '#F9FAFB' }}>{heroData.greeting} </span>
@@ -168,15 +200,15 @@ export default function Hero() {
           animate="visible"
           custom={0.3}
           style={{
-            fontSize: 'clamp(18px, 3vw, 28px)',
-            fontWeight: 500,
+            fontSize: 'clamp(18px, 3.2vw, 30px)',
+            fontWeight: 600,
             color: '#9CA3AF',
             marginBottom: '24px',
             fontFamily: 'var(--font-mono)',
-            minHeight: '40px',
+            minHeight: '44px',
           }}
         >
-          {'> '}
+          <span style={{ color: '#38BDF8' }}>&gt; </span>
           <span style={{ color: '#F9FAFB' }}>{typedText}</span>
           <motion.span
             animate={{ opacity: [1, 0] }}
@@ -203,8 +235,8 @@ export default function Hero() {
             fontSize: '16px',
             lineHeight: 1.8,
             color: '#9CA3AF',
-            maxWidth: '620px',
-            margin: '0 auto 40px',
+            maxWidth: '680px',
+            margin: '0 auto 36px',
           }}
         >
           {heroData.summary}
@@ -219,29 +251,118 @@ export default function Hero() {
           style={{
             display: 'flex',
             flexWrap: 'wrap',
-            gap: '16px',
+            gap: '14px',
             justifyContent: 'center',
+            marginBottom: '28px',
           }}
         >
           <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(59, 130, 246, 0.5)' }}
-            whileTap={{ scale: 0.95 }}
+            href="#projects"
+            whileHover={{ scale: 1.04, boxShadow: '0 0 30px rgba(59, 130, 246, 0.4)' }}
+            whileTap={{ scale: 0.96 }}
             className="btn-primary"
           >
-            <span><Mail size={18} /></span>
-            <span>{heroData.cta.secondary}</span>
+            <span><Sparkles size={18} /></span>
+            <span>View Case Studies</span>
           </motion.a>
 
           <motion.a
-            href="#projects"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            href={contactInfo.portfolio}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+            className="btn-outline"
+            style={{
+              borderColor: 'rgba(23, 105, 255, 0.4)',
+              color: '#60A5FA',
+            }}
+          >
+            <SiBehance size={18} />
+            <span>Behance Profile</span>
+          </motion.a>
+
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
             className="btn-outline"
           >
-            <span><Download size={18} /></span>
-            <span>{heroData.cta.primary}</span>
+            <Mail size={18} />
+            <span>Contact Me</span>
           </motion.a>
+        </motion.div>
+
+        {/* Social Quick Links */}
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          custom={0.7}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '16px',
+            alignItems: 'center',
+          }}
+        >
+          <a
+            href={contactInfo.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              fontSize: '13px',
+              color: '#9CA3AF',
+              textDecoration: 'none',
+              padding: '6px 14px',
+              borderRadius: '9999px',
+              background: 'rgba(10, 102, 194, 0.1)',
+              border: '1px solid rgba(10, 102, 194, 0.25)',
+              transition: 'all 0.3s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#38BDF8'
+              e.currentTarget.style.borderColor = 'rgba(10, 102, 194, 0.5)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = '#9CA3AF'
+              e.currentTarget.style.borderColor = 'rgba(10, 102, 194, 0.25)'
+            }}
+          >
+            <FaLinkedinIn size={14} color="#0A66C2" />
+            <span>LinkedIn</span>
+          </a>
+
+          <a
+            href={`mailto:${contactInfo.email}`}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              fontSize: '13px',
+              color: '#9CA3AF',
+              textDecoration: 'none',
+              padding: '6px 14px',
+              borderRadius: '9999px',
+              background: 'rgba(59, 130, 246, 0.1)',
+              border: '1px solid rgba(59, 130, 246, 0.25)',
+              transition: 'all 0.3s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#38BDF8'
+              e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = '#9CA3AF'
+              e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.25)'
+            }}
+          >
+            <Mail size={14} color="#3B82F6" />
+            <span>{contactInfo.email}</span>
+          </a>
         </motion.div>
 
         {/* Scroll Indicator */}
@@ -250,7 +371,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
           style={{
-            marginTop: '60px',
+            marginTop: '48px',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
